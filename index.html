@@ -1,0 +1,105 @@
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<title>Luigi's</title>
+</head>
+<body>
+	<div class="container">	
+		<h2>Welcome to Luigi's!</h2>
+		<h3>Prices: </h3>
+		<ul class="prices">
+			<div class="row">
+				<div class="col-sm-3 pizza price">
+					<li id="small"> Small Cheese Pizza: $5.00 
+				</div>
+				<div class="col-sm-3 topping price">
+					<span id="small-toppings">Additional toppings $ .50 each</span>
+					</li>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3 pizza price">
+					<li id="medium"> Medium Cheese Pizza: $10.00
+				</div>
+				<div class="col-sm-3 topping price">
+					<span id="medium-toppings">Additional toppings $1.00 each</span>
+					</li>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-sm-3 pizza price">
+					<li id="large"> Large Cheese Pizza: $15.00
+				</div>
+				<div class="col-sm-3 topping price">
+					<span id="medium-toppings">Additional toppings $1.50 each</span>
+					</li>
+				</div>
+			</row>
+		</ul> 
+			<h3> Create Your Pizza!</h3>
+			<form class="input">
+				<div class="row">
+					<div class="col-sm-3 customer">
+						<label for="name"> Your name: </label>
+						<br>
+						<input type="text" id="name" required>
+					</div> 
+					<div class="col-sm-2 pizza-quantity">
+						<label for="quantity"> Enter a Quantity: </label>
+						<br>
+						<input type="number" id="quantity" min="1" max="25" value=1 required>
+					</div>
+					<div class="col-sm-2 pizza-size">
+						<label for="size"> Select a Size: </label> 
+						<select id="psize" required>
+							<option value="Small"> Small </option>
+							<option value="Medium"> Medium </option>
+							<option value="Large"> Large </option> 
+						</select>
+					</div>
+				</div> 
+				<h3>Select toppings </h3> 
+				<div class="row">
+					<div class="col-sm-3 toppings">
+						<input type="checkbox" value="bacon"> Bacon </input>
+						<br>
+						<input type="checkbox" value="chicken"> Chicken </input>
+						<br>
+						<input type="checkbox" value="pepperoni"> Pepperoni </input>
+						<br>
+						<input type="checkbox" value="salami"> Salami </input>
+						<br>
+						<input type="checkbox" value="sausage"> Sausage </input>
+					</div>
+					<div class="col-sm-3 toppings">
+						<input type="checkbox" value="bellpeppers"> Bell Peppers </input>
+						<br>
+						<input type="checkbox" value="mushrooms"> Mushrooms </input>
+						<br>
+						<input type="checkbox" value="onions"> Onions </input>
+						<br>
+						<input type="checkbox" value="olives"> Olives </input>
+						<br>
+						<input type="checkbox" value="pineapple"> Pineapple </input> 
+					</div>
+				</row>
+				<div class="row">
+					<div class="col-sm-10 output">
+						<span id="build-pizza">
+
+						</span>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-sm-2">
+						<br>
+						<button type="submit" class="btn order btn-primary"> Submit Your Order </button>
+					</div>
+				</div>
+			</form>
+		</div> <!-- End of row -->
+	</div> <!-- End of container -->
+	<script src="js/jquery-1.11.3.js"></script>
+	<script src="js/application.js"></script>
+</body>
+</html>
