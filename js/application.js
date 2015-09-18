@@ -2,16 +2,26 @@ var name, quantity, pizzaSize, toppings;
 
 $(document).ready(function(){
 	$("button").click(function() {
-		debugger; 
+		event.preventDefault();
 		toppings = []; 
+		//Get Inputs
 		name = $("input#name").val();
-		quantity = $("input#quantity").val();
+		quantity = parseInt($("input#quantity").val());
 		pizzaSize = $("#psize").val(); 
 
 		$(".toppings :checked").each(function() {
 			toppings.push($(this).val());
 		});
 		
+		newPizza = new Pizza( pizzaSize, toppings );
+		newOrder = new Order( name, newPizza, quantity ); 
+		var totalPrice = newOrder.getOrderPrice(); 
+
+		$("#build-pizza").append(
+			"<h3>Thanks " + name + "! Your Pizza Order has been placed!</h3>" +
+			"<p>" + quantity + " " + pizzaSize + " with " + toppings.join(", ") + "!</p>" +
+			"<p>Total: $" + totalPrice + "</p>" 
+	 	);
 
 	})
 
