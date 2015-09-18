@@ -18,7 +18,7 @@ describe('Pizza', function() {
 
 	it("Tests getting price for a simple pizza", function() {
 		var testPizza = new Pizza("Small", ["Cheese"]);
-		var pizzaPrice = testPizza.getPrice();
+		var pizzaPrice = testPizza.getPrice(1);
 		console.log(pizzaPrice);
 
 		expect(pizzaPrice).to.equal(5.50); 
@@ -27,7 +27,14 @@ describe('Pizza', function() {
 	it("Tests getting the price of a pizza with multiple toppings", function () {
 		var testPizza = new Pizza("Large",["Cheese","Pepperoni","Sausage","Ham","Onions","Mushrooms"]);
 
-		expect(testPizza.getPrice()).to.equal(24.00);
-	})
+		expect(testPizza.getPrice(1)).to.equal(24.00);
+	});
+
+	it("Tests getting the price of several of the same Pizza ojects", function() {
+		var testPizza = new Pizza("Large",["Cheese","Pepperoni","Sausage","Ham","Onions","Mushrooms"]);
+		var quantity = 5; 
+
+		expect(testPizza.getPrice(quantity)).to.equal(120.00);
+	});
 
 });

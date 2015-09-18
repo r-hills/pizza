@@ -9,7 +9,7 @@ Pizza.prototype.addTopping = function( topping ) {
 	return this.toppings.push(topping); 
 };
 
-Pizza.prototype.getPrice = function() {
+Pizza.prototype.getPrice = function( quantity ) {
 	var price, toppingPrice; 
 
 	switch( this.pizzaSize ) {
@@ -30,7 +30,7 @@ Pizza.prototype.getPrice = function() {
 	for(var i=0; i < this.toppings.length; ++i ) {
 		price += toppingPrice; 
 	}
-	return price; 
+	return (price * quantity); 
 };
 
 
