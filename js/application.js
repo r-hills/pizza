@@ -4,7 +4,8 @@ $(document).ready(function(){
 	$("button").click(function() {
 		event.preventDefault();
 		toppings = []; 
-		//Get Inputs
+		
+		//Get User Inputs
 		name = $("input#name").val();
 		quantity = parseInt($("input#quantity").val());
 		pizzaSize = $("#psize").val(); 
@@ -13,6 +14,8 @@ $(document).ready(function(){
 			toppings.push($(this).val());
 		});
 		
+
+		// Create Order and calculate total price
 		newPizza = new Pizza( pizzaSize, toppings );
 		newOrder = new Order( name, newPizza, quantity ); 
 		var totalPrice = newOrder.getOrderPrice(); 
@@ -20,7 +23,7 @@ $(document).ready(function(){
 		$("#build-pizza").append(
 			"<h3>Thanks " + name + "! Your Pizza Order has been placed!</h3>" +
 			"<p>" + quantity + " " + pizzaSize + " with " + toppings.join(", ") + "!</p>" +
-			"<p>Total: $" + totalPrice + "</p>" 
+			"<p>Total: $" + parseFloat(totalPrice).toFixed(2) + "</p>" 
 	 	);
 
 	})
