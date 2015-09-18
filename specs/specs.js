@@ -16,7 +16,13 @@ describe('Pizza', function() {
 		expect(testPizza.toppings[1]).to.equal("Pepperoni");
 	});
 
+	it("tests getting price for a simple pizza", function() {
+		var testPizza = new Pizza("Small", ["Cheese"]);
+		var pizzaPrice = testPizza.getPrice();
+		console.log(pizzaPrice);
 
+		expect(pizzaPrice).to.equal(5.50); 
+	});
 
 
 
