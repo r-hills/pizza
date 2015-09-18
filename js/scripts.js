@@ -33,7 +33,11 @@ Pizza.prototype.getPrice = function( quantity ) {
 	return (price * quantity); 
 };
 
-
+function Order( customerName, pizza, quantity ) {
+	this.customerName = customerName;
+	this.pizza = pizza; 
+	this.quantity = quantity; 
+}
 
 
  

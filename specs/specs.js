@@ -37,4 +37,14 @@ describe('Pizza', function() {
 		expect(testPizza.getPrice(quantity)).to.equal(120.00);
 	});
 
+	it("Tests creation of a simple Order object", function(){
+		var testPizza = new Pizza("Large",["Cheese"]);
+		var quantity = 5; 
+		var testOrder = new Order("Bob", testPizza, quantity ); 
+
+		expect(testOrder.customerName).to.equal("Bob");
+		expect(testOrder.quantity).to.equal(5);
+		expect(testOrder.pizza).to.eql(testPizza); 
+	});
+
 });
