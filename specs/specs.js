@@ -8,4 +8,16 @@ describe('Pizza', function() {
 		expect(testPizza.toppings).to.eql(toppings); 
 	});
 
+	it("tests adding topping to topping array", function() {
+		var testPizza = new Pizza("Small", toppings);
+		testPizza.addTopping("Pepperoni");
+
+		expect(testPizza.toppings[0]).to.equal("Cheese");
+		expect(testPizza.toppings[1]).to.equal("Pepperoni");
+	});
+
+
+
+
+
 });

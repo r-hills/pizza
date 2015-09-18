@@ -5,7 +5,9 @@ function Pizza( pizzaSize, toppings ) {
 	this.toppings = toppings; 
 };
 
-
+Pizza.prototype.addTopping = function( topping ) {
+	return this.toppings.push(topping); 
+}
 
 
 
