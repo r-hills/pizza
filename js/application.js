@@ -1,31 +1,43 @@
 var name, quantity, pizzaSize, toppings;
 
 $(document).ready(function(){
+	$(".refresh").click(function() {
+		location.reload();
+	});
 	$("button").click(function() {
 		event.preventDefault();
-		toppings = []; 
-		
+		toppings = ["cheese"]; 
+		$("#build-pizza").html("");
+
 		//Get User Inputs
-		name = $("input#name").val();
+		name = $("input#name").val(); 
 		quantity = parseInt($("input#quantity").val());
-		pizzaSize = $("#psize").val(); 
+		if( name != "" ) {
+			if( quantity > 0 && quantity < 26 ) {
+				pizzaSize = $("#psize").val(); 
 
-		$(".toppings :checked").each(function() {
-			toppings.push($(this).val());
-		});
-		
+				$(".toppings :checked").each(function() {
+					toppings.push($(this).val());
+				});
+				
 
-		// Create Order and calculate total price
-		newPizza = new Pizza( pizzaSize, toppings );
-		newOrder = new Order( name, newPizza, quantity ); 
-		var totalPrice = newOrder.getOrderPrice(); 
+				// Create Order and calculate total price
+				newPizza = new Pizza( pizzaSize, toppings );
+				newOrder = new Order( name, newPizza, quantity ); 
+				var totalPrice = newOrder.getOrderPrice(); 
 
-		$("#build-pizza").append(
-			"<h3>Thanks " + name + "! Your Pizza Order has been placed!</h3>" +
-			"<p>" + quantity + " " + pizzaSize + " with " + toppings.join(", ") + "!</p>" +
-			"<p>Total: $" + parseFloat(totalPrice).toFixed(2) + "</p>" 
-	 	);
-
+				$("#build-pizza").append(
+					"<h3>Thanks " + name + "! Your Pizza Order has been placed!</h3>" +
+					"<p>" + quantity + " " + pizzaSize + " " + toppings.join(", ") + " pizzas!</p>" +
+					"<p>Total: $" + parseFloat(totalPrice).toFixed(2) + "</p>" 
+			 	);
+			 	$(".order").replaceWith("<button type='submit' class='btn refresh btn-success'> New Order </button>");
+			} else {
+				$("#build-pizza").append("<br><h4 class='warning'>You can only order 1 to 25 pies online!")
+			}
+		} else { 
+			$("#build-pizza").append("<br><h4 class='warning'>Enter a name!</h4>"); 
+		}
 	})
 
 
@@ -61,7 +73,7 @@ Pizza.prototype.getPrice = function() {
 			break; 
 	} 
 
-	for(var i=0; i < this.toppings.length; ++i ) {
+	for(var i=1; i < this.toppings.length; ++i ) {
 		price += toppingPrice; 
 	}
 	return price; 
